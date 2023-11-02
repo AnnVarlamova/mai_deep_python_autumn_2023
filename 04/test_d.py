@@ -34,8 +34,8 @@ class TestSpeedLimitDescriptor(unittest.TestCase):
         self.assertEqual(self.car.speed, 120)
 
     def test_set_negative_speed(self):
-        with self.assertRaises(ValueError):
-            self.car.speed = -10
+        self.car.speed = -10
+        self.assertEqual(self.car.speed, 0)
 
     def test_accelerate_within_limit(self):
         self.car.accelerate(50)
